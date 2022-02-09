@@ -34,3 +34,24 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     recurse: yes
+
+- name: Copy utils sql scripts
+  ansible.builtin.copy:
+    src: initdb.sql
+    dest: /home/{{ user }}/initdb.sql
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: Copy utils sql scripts
+  ansible.builtin.copy:
+    src: initdb.sh
+    dest: /home/{{ user }}/initdb.sh
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: Copy utils sql scripts
+  ansible.builtin.copy:
+    src: install_pg10.sh
+    dest: /home/{{ user }}/install_pg10.sh
+    owner: "{{ user }}"
+    group: "{{ user }}"
