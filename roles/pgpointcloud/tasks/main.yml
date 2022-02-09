@@ -1,0 +1,36 @@
+- name: Clone pgpointcloud-master
+  ansible.builtin.git:
+    repo: 'https://github.com/pblottiere/pointcloud'
+    dest: /home/{{ user }}/pointcloud-master
+    version: master
+
+- name: Change pointcloud-master content permission
+  file:
+    path: /home/{{ user }}/pointcloud-master
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: yes
+
+- name: Download pgpointcloud-1.1.1
+  get_url:
+    url: 'https://github.com/pgpointcloud/pointcloud/archive/refs/tags/v1.1.1.tar.gz'
+    dest: /home/{{ user }}/
+
+- name: Change tarball permission
+  file:
+    path: /home/{{ user }}/pointcloud-1.1.1.tar.gz
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: Unarchive pgpointcloud-1.1.1
+  ansible.builtin.unarchive:
+    src: /home/{{ user }}/pointcloud-1.1.1.tar.gz
+    dest: /home/{{ user }}/
+    remote_src: yes
+
+- name: Change content permission
+  file:
+    path: /home/{{ user }}/pointcloud-1.1.1
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: yes

@@ -1,0 +1,8 @@
+- hosts: pc_1_1_1
+  become: yes
+  become_user: root
+  vars_files:
+    - vars.yml
+  roles:
+    - role: base
+    - role: pgpointcloud

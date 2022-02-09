@@ -1,0 +1,15 @@
+- name: Create user '{{ user }}'
+  user:
+    name: '{{ user }}'
+    system: yes
+
+- name: sudo without password for user
+  copy:
+    content: '%{{ user }} ALL=(ALL:ALL) NOPASSWD:ALL'
+    dest: /etc/sudoers.d/{{ user }}_nopasswd
+    mode: 0440
+
+- name: Install prerequisites
+  apt:
+    name: ['gnupg', 'g++', 'valgrind', 'libcunit1-dev', 'autoconf', 'make', 'zlib1g-dev', 'libxml2-dev']
+    update_cache: yes

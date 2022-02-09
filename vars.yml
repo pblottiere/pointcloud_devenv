@@ -1,0 +1,7 @@
+# common
+locale: "en_US.UTF-8"
+timezone: "Etc/UTC"
+user: "pblottiere"
+
+postgresql_version: 10
+postgis_version: 3
