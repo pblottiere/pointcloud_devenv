@@ -11,5 +11,5 @@
 
 - name: Install prerequisites
   apt:
-    name: ['gnupg', 'g++', 'valgrind', 'libcunit1-dev', 'autoconf', 'make', 'zlib1g-dev', 'libxml2-dev']
+    name: ['gnupg', 'g++', 'valgrind', 'libcunit1-dev', 'autoconf', 'make', 'zlib1g-dev', 'libxml2-dev', 'cmake']
     update_cache: yes
